@@ -3,7 +3,7 @@ Created for ITMO's Data Driven Engineering homework
 
 Dataset contains information about **gas chromatography (GC)**
 
-[Link](https://disk.yandex.ru/d/mdSHW33ub0hUBQ) to dataset
+[Link](https://drive.google.com/file/d/14jdCxjCsB0NT5ExKhWByxMiNHvd6V_3g/view?usp=sharing) to dataset
 
 ### How to start the code
 1. Download conda
