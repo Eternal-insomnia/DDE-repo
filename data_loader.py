@@ -34,6 +34,12 @@ def data_processing(data):
     print(data.info())
     return data
 
+def save_data(data):
+    data.to_parquet("data/" + "gas_chromatography.parquet", index = False)
+    print("Data saved!")
+
 data_path = 'data/gas_chromatography.csv'
 df = read_dataset(data_path)
 df = data_processing(df)
+print(df.dtypes)
+save_data(df)
