@@ -10,4 +10,8 @@ Dataset contains information about **gas chromatography (GC)**
 2. Write this comand in terminal: ```conda env create -f environment.yml```
 
 ### Result of data_loader.py
-![data_loader results](cache/data_loader_result.png)
+read_dataset() return:
+![read_dataset results](cache/read_data_result.png)
+
+data_processing() return:
+![data_processing result](cache/data_processing_result.png)

@@ -1,10 +1,39 @@
 import pandas as pd
 
 # Reading data
-def read_dataset(url):
-    df=pd.read_csv(url, sep=';', encoding='latin-1')
+def read_dataset(data_path):
+    df = pd.read_csv(data_path, sep=';')
     print(df.head(10))
     return df
 
-url = 'https://drive.google.com/uc?id=14jdCxjCsB0NT5ExKhWByxMiNHvd6V_3g'
-df = read_dataset(url)
+def data_processing(data):
+    print("\nData structure before processing\n")
+    print(data.info())
+    data["Retention index type"] = data["Retention index type"].astype("category")
+    data["Is column polar"] = data["Column polarity"].map({"polar column": True, "non-polar column": False})
+    data = data.drop("Column polarity", axis=1)
+    data["Carrier gas"] = data["Carrier gas"].replace("He", "Helium")
+    data["Carrier gas"] = data["Carrier gas"].replace("N2", "Nitrogen")
+    data["Carrier gas"] = data["Carrier gas"].replace("H2", "Hydrogen")
+    data["Carrier gas"] = data["Carrier gas"].replace("N2/He", "He or N2")
+    data["Carrier gas"] = data["Carrier gas"].astype("category")
+    data["Temperature regime"] = data["Temperature regime"].astype("category")
+    data["I"] = data["I"].astype("float32")
+    data["Temperature"] = data["Temperature"].drop(data[data["Temperature"] == "40. to 190."].index)
+    data["Temperature"] = data["Temperature"].astype("float32")
+    data["Tstart"] = data["Tstart"].astype("float16")
+    data["Tend"] = data["Tend"].astype("float16")
+    data["Heat rate"] = data["Heat rate"].astype("float16")
+    data["Initial hold"] = data["Initial hold"].astype("float16")
+    data["Final hold"] = data["Final hold"].astype("float16")
+    data["Column type"] = data["Column type"].astype("category")
+    data["Column length"] = data["Column length"].astype("float16")
+    data["Column diameter"] = data["Column diameter"].astype("float16")
+    data["Phase thickness"] = data["Phase thickness"].astype("float16")
+    print("\nData structure after processing\n")
+    print(data.info())
+    return data
+
+data_path = 'data/gas_chromatography.csv'
+df = read_dataset(data_path)
+df = data_processing(df)
