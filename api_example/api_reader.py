@@ -21,28 +21,13 @@ country_names = []
 for country in countries:
     country_names.append(country.get('name')['common'])
 
-country_status = []
-country_capital = []
-country_region = []
-country_subregion = []
-country_area = []
-country_population = []
+df = pd.DataFrame(columns=['Название', 'Столица', 'Население', 'Площадь', 'Континент', 'Регион', 'Признанность'])
 
 for country in tqdm(country_names):
     response = make_request(f'/name/{country}')[0]
-    country_status.append(response.get('status'))
-    country_capital.append(response.get('capital'))
-    country_region.append(response.get('region')[0])
-    country_subregion.append(response.get('subregion'))
-    country_area.append(response.get('area'))
-    country_population.append(response.get('population'))
+    if response.get('capital'):
+        df.loc[len(df)] = [country, response.get('capital')[0], response.get('population'), response.get('area'), response.get('region'), response.get('subregion'), response.get('status')]
 
-df = pd.DataFrame(data={'Name': country_names, 
-                        'Status': country_status, 
-                        'Capital': country_capital, 
-                        'Region': country_region, 
-                        'Subregion': country_subregion,
-                        'Area': country_area,
-                        'Population': country_population})
+print(df.head(10))
 
-print(df.head())
+df.to_csv('countries.csv', index=False)
