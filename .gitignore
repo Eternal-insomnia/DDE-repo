@@ -1,2 +1,4 @@
 data/
-api_example/*.csv
+*.csv
+.env
+*.db
