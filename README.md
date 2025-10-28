@@ -28,3 +28,7 @@ data_processing() return:
 
 SAVE_DATA(data)
 Saves data into `.parquet` file. File will save in `data/` directory 
+
+---
+
+Render EDA.ipynb [link](https://nbviewer.org/github/Eternal-insomnia/DDE-repo/blob/main/notebooks/EDA.ipynb)
