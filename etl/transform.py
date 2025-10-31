@@ -1,14 +1,7 @@
 import pandas as pd
 
-# Reading data
-def read_dataset(data_path):
-    df = pd.read_csv(data_path, sep=';')
-    print(df.head(10))
-    return df
-
-def data_processing(data):
-    print("\nData structure before processing\n")
-    print(data.info())
+# Transforming data
+def data_processing(data: pd.DataFrame) -> pd.DataFrame:
     data["Retention index type"] = data["Retention index type"].astype("category")
     data["Is column polar"] = data["Column polarity"].map({"polar column": True, "non-polar column": False})
     data = data.drop("Column polarity", axis=1)
@@ -30,16 +23,4 @@ def data_processing(data):
     data["Column length"] = data["Column length"].astype("float32")
     data["Column diameter"] = data["Column diameter"].astype("float32")
     data["Phase thickness"] = data["Phase thickness"].astype("float32")
-    print("\nData structure after processing\n")
-    print(data.info())
     return data
-
-def save_data(data):
-    data.to_parquet("data/" + "gas_chromatography.parquet", index = False)
-    print("Data saved!")
-
-data_path = 'data/gas_chromatography.csv'
-df = read_dataset(data_path)
-df = data_processing(df)
-print(df.dtypes)
-save_data(df)
