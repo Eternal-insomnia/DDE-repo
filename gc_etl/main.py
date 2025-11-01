@@ -1,35 +1,39 @@
 import argparse
 
-from etl.extract import read_dataset
-from etl.transform import data_processing
-from etl.load import save_to_parquet, save_to_db
+from gc_etl.extract import read_dataset
+from gc_etl.load import save_to_db, save_to_parquet
+from gc_etl.transform import data_processing
 
 
 def get_cli_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="ETL pipeline")
     parser.add_argument(
-        "-db", "--save-to-db", 
-        action="store_true", 
-        help="Save data to database. DB config stored in .env"
+        "-db",
+        "--save-to-db",
+        action="store_true",
+        help="Save data to database. DB config stored in .env",
     )
     parser.add_argument(
-        "-all", "--save-to-all", 
-        action="store_true", 
-        help="Save data to database and parquet file. Path - data/processed/"
+        "-all",
+        "--save-to-all",
+        action="store_true",
+        help="Save data to database and parquet file. Path - data/processed/",
     )
     parser.add_argument(
-        "-ext-l", "--extract-local",
-        action="store", # Default action
-        type=str, 
-        default="gaschromatography.csv", 
-        help="Extract data from local csv file. Put your file into data/raw/. Enter file name"
+        "-ext-l",
+        "--extract-local",
+        action="store",  # Default action
+        type=str,
+        default="gaschromatography.csv",
+        help="Extract data from local csv file. Put your file into data/raw/. Enter file name",
     )
     parser.add_argument(
-        "-ext-g", "--extract-gdrive", 
-        action="store", # Default action
-        type=str, 
-        default=None, # "14jdCxjCsB0NT5ExKhWByxMiNHvd6V_3g"
-        help="Extract data from Google Drive. Enter file ID"
+        "-ext-g",
+        "--extract-gdrive",
+        action="store",  # Default action
+        type=str,
+        default=None,
+        help="Extract data from Google Drive. Enter file ID",
     )
     args = parser.parse_args()
     return args

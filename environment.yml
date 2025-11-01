@@ -1,8 +1,7 @@
-name: dde_env
+name: dde-repo
 channels:
   - defaults
   - conda-forge
-  - anaconda
 dependencies:
   - arrow-cpp=19.0.0=h800e9c8_5
   - asttokens=3.0.0=pyhd8ed1ab_1
@@ -19,11 +18,13 @@ dependencies:
   - aws-checksums=0.2.7=h02ab6af_1
   - aws-crt-cpp=0.34.0=h885b0b7_0
   - aws-sdk-cpp=1.11.638=hf0af688_0
+  - black=25.9.0=py312haa95532_0
   - blas=1.0=mkl
   - bottleneck=1.4.2=py312h4b0e54e_0
   - bzip2=1.0.8=h0ad9c76_8
   - c-ares=1.34.5=h731ff69_0
   - ca-certificates=2025.10.5=h4c7d964_0
+  - click=8.2.1=py312haa95532_0
   - colorama=0.4.6=pyhd8ed1ab_1
   - comm=0.2.3=pyhe01879c_0
   - debugpy=1.8.16=py312h885b0b7_0
@@ -31,6 +32,7 @@ dependencies:
   - exceptiongroup=1.3.0=pyhd8ed1ab_0
   - executing=2.2.1=pyhd8ed1ab_0
   - expat=2.7.1=h8ddb27b_0
+  - flake8=7.3.0=py312haa95532_0
   - freetype=2.13.3=h0620614_0
   - gflags=2.2.2=hd77b12b_1
   - glog=0.5.0=hd77b12b_1
@@ -39,10 +41,10 @@ dependencies:
   - ipykernel=7.1.0=pyh6dadd2b_0
   - ipython=9.6.0=pyh6be1c34_0
   - ipython_pygments_lexers=1.1.1=pyhd8ed1ab_0
+  - isort=6.1.0=py312haa95532_0
   - jedi=0.19.2=pyhd8ed1ab_1
   - jpeg=9f=ha349fce_0
   - jupyter_client=8.6.3=pyhd8ed1ab_1
-  - jupyter_core=5.9.1=pyh6dadd2b_0
   - krb5=1.21.3=hdf4eb48_0
   - lcms2=2.16=hb4a4139_0
   - lerc=3.0=hd77b12b_0
@@ -69,10 +71,14 @@ dependencies:
   - libzlib=1.3.1=h2466b09_2
   - lz4-c=1.9.4=h2bbff1b_1
   - matplotlib-base=3.10.6=py312h43afe63_0
+  - matplotlib-inline=0.1.7=py312haa95532_0
+  - mccabe=0.7.0=pyhd3eb1b0_0
   - mkl=2025.0.0=h5da7b33_930
   - mkl-service=2.4.0=py312h827c3e9_3
   - mkl_fft=1.3.11=py312h5810407_1
   - mkl_random=1.2.8=py312h8683371_1
+  - mypy_extensions=1.0.0=py312haa95532_0
+  - narwhals=2.10.1=pyhcf101f3_0
   - nest-asyncio=1.6.0=pyhd8ed1ab_1
   - numexpr=2.11.0=py312ha02bb35_1
   - numpy=2.3.3=py312hc2e1e29_1
@@ -83,17 +89,22 @@ dependencies:
   - packaging=25.0=pyh29332c3_1
   - pandas=2.3.2=py312ha5e6156_0
   - parso=0.8.5=pyhcf101f3_0
+  - pathspec=0.12.1=py312haa95532_1
   - pickleshare=0.7.5=pyhd8ed1ab_1004
   - pip=25.2=pyhc872135_0
+  - plotly=6.3.1=pyhd8ed1ab_0
   - prompt-toolkit=3.0.52=pyha770c72_0
   - psycopg2=2.9.10=py312h827c3e9_0
   - pure_eval=0.2.3=pyhd8ed1ab_1
   - pyarrow=19.0.0=py312h885b0b7_2
+  - pycodestyle=2.14.0=py312haa95532_0
+  - pyflakes=3.4.0=py312haa95532_0
   - pygments=2.19.2=pyhd8ed1ab_0
   - python=3.12.12=h716150d_1
   - python-dateutil=2.9.0post0=py312haa95532_2
   - python-dotenv=1.2.1=pyhcf101f3_0
   - python-tzdata=2025.2=pyhd3eb1b0_0
+  - pytokens=0.2.0=py312haa95532_0
   - pytz=2025.2=py312haa95532_0
   - pywin32=311=py312h885b0b7_0
   - pyzmq=27.1.0=py312h7149c55_0
@@ -118,6 +129,7 @@ dependencies:
   - vc14_runtime=14.44.35208=h818238b_32
   - vcomp14=14.44.35208=h818238b_32
   - vs2015_runtime=14.44.35208=h38c0c73_32
+  - wcwidth=0.2.13=py312haa95532_0
   - wheel=0.45.1=pyhd8ed1ab_1
   - xz=5.6.4=h4754444_1
   - zeromq=4.3.5=h5bddc39_9
@@ -148,6 +160,7 @@ dependencies:
       - findpython==0.7.0
       - fonttools==4.60.0
       - fqdn==1.5.1
+      - gc-etl==0.0.1
       - greenlet==3.2.4
       - h11==0.16.0
       - httpcore==1.0.9
@@ -164,7 +177,6 @@ dependencies:
       - kiwisolver==1.4.9
       - lark==1.2.2
       - markupsafe==3.0.2
-      - matplotlib-inline==0.1.7
       - mistune==3.1.4
       - more-itertools==10.8.0
       - msgpack==1.1.1
@@ -204,10 +216,9 @@ dependencies:
       - uri-template==1.3.0
       - urllib3==2.5.0
       - virtualenv==20.34.0
-      - wcwidth==0.2.13
       - webcolors==24.11.1
       - webencodings==0.5.1
       - websocket-client==1.8.0
       - wget==3.2
       - zstandard==0.25.0
-prefix: C:\Users\GOYDA\.conda\envs\dde_env
+prefix: C:\Users\GOYDA\.conda\envs\dde-repo

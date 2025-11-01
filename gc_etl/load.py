@@ -1,12 +1,15 @@
-import pandas as pd
 import os
+
 from dotenv import load_dotenv
+import pandas as pd
 from sqlalchemy import create_engine, text
+
 
 # Saving data into parquet file
 def save_to_parquet(data: pd.DataFrame):
-    data.to_parquet("data/gas_chromatography.parquet", index = False)
+    data.to_parquet("data/gas_chromatography.parquet", index=False)
     print("Data saved to parquet!")
+
 
 # Saving data into DB
 def save_to_db(data: pd.DataFrame):
@@ -40,5 +43,4 @@ def save_to_db(data: pd.DataFrame):
 
     with engine.begin() as conn:
         _ = conn.execute(text(f"ALTER TABLE public.{db_table_name} ADD PRIMARY KEY (index)"))
-    
     print("Data saved to DB!")
