@@ -95,4 +95,4 @@ By default, code uses `data/raw/gaschromatography.csv` and saves data into `.par
 ---
 
 ### EDA render
-Render (without plotly graphs visualisation) EDA.ipynb [link](https://nbviewer.org/github/Eternal-insomnia/DDE-repo/blob/main/notebooks/EDA.ipynb)
+Render (without plotly graphs visualisation) EDA.ipynb [link](https://nbviewer.org/github/Eternal-insomnia/DDE-repo/blob/main/reports/EDA.ipynb)
