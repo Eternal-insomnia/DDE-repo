@@ -89,6 +89,9 @@ Before you start the code **I strongly recommend** you read the [cli-arguments p
 To start code write:  
 ```cmd
 python gc_etl/main.py
+```
+```cmd
+make run 
 ```  
 By default, code uses `data/raw/gaschromatography.csv` and saves data into `.parquet`-file in `data/processed/` directory
 
