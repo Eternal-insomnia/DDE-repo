@@ -7,7 +7,7 @@ from sqlalchemy import create_engine, text
 
 # Saving data into parquet file
 def save_to_parquet(data: pd.DataFrame):
-    data.to_parquet("data/gas_chromatography.parquet", index=False)
+    data.to_parquet("data/processed/gas_chromatography.parquet", index=False)
     print("Data saved to parquet!")
 
 
