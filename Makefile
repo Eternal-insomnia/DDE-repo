@@ -51,7 +51,10 @@ create_environment:
 	@echo ">>> conda env created. Activate with:\nconda activate $(PROJECT_NAME)"
 	
 
-
+## Run project without cli-parameters (by default)
+.PHONY: run
+run:
+	${PYTHON_INTERPRETER} gc_etl/main.py
 
 #################################################################################
 # PROJECT RULES                                                                 #

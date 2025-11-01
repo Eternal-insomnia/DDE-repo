@@ -24,7 +24,7 @@ def get_cli_args() -> argparse.Namespace:
         "--extract-local",
         action="store",  # Default action
         type=str,
-        default="gaschromatography.csv",
+        default="gas_chromatography.csv",
         help="Extract data from local csv file. Put your file into data/raw/. Enter file name",
     )
     parser.add_argument(
@@ -41,21 +41,23 @@ def get_cli_args() -> argparse.Namespace:
 
 def run_etl(args: argparse.Namespace):
     # Data extraction
-    if args.ext_g is not None:
+    if hasattr(args, 'ext_g'):
         file_id = args.ext_g
         data_path = f"https://drive.google.com/uc?id={file_id}"
-    else:
+    elif hasattr(args, 'ext_l'):
         data_path = "data/raw/" + args.ext_l
+    else:
+        data_path = "data/raw/gas_chromatography.csv"
     df = read_dataset(data_path)
 
     # Data transormation
     df = data_processing(df)
 
     # Data loading
-    if args.all:
+    if hasattr(args, 'all'):
         save_to_parquet(df)
         save_to_db(df)
-    elif args.db:
+    elif hasattr(args, 'db'):
         save_to_db(df)
     else:
         save_to_parquet(df)
