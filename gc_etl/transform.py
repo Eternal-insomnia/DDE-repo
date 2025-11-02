@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 
@@ -46,7 +45,6 @@ def data_processing(data: pd.DataFrame) -> pd.DataFrame:
     )
 
     # Converting into correct dtypes
-    for col in data.columns:
-        data[col] = data[col].astype(np.dtype(data_types[col]))
+    data = data.astype(data_types)
 
     return data
