@@ -26,7 +26,6 @@ Gas Chromatography ETL
 │   └── README.md               <- Parsing documentation.
 │
 ├── notebooks          <- Jupyter notebooks.
-│   └── dtypes.ipynb            <- Dataset research for matching dtypes
 │
 ├── pyproject.toml     <- Project configuration file with package metadata for 
 │                         gc_etl and configuration for tools like black
